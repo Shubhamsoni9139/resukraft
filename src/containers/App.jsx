@@ -1,18 +1,32 @@
 import React, { Suspense } from 'react'
 //home,auth
 import { Route,Routes } from 'react-router-dom';
-import {HomeScreen , Authentication} from "../pages"
+import {HomeScreen , Authentication , Resumes} from "../pages"
+import { QueryClient, QueryClientProvider} from "react-query";
+import {ReactQueryDevtools} from "react-query/devtools"
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 const App = () => {
+    const queryClient = new QueryClient()
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <QueryClientProvider client={queryClient}>
+        <Suspense fallback={<div>Loading...</div>}>
 <Routes>
     <Route path='/*' element={<HomeScreen />}/>
+    <Route path='/resumes' element={<Resumes/>}/>
     <Route path='/auth' element={<Authentication/>}/>
 
 
 </Routes>
-    </Suspense>)
+    </Suspense>
+    <ToastContainer position='top-right' theme='dark' />
+    <ReactQueryDevtools initialIsOpen={false}/>
+    </QueryClientProvider>
+    
+    )
 
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Logo } from '../assets';
-import HeroSectionWriteup from '../components/HomeScreen/HeroSectionWriteup';
+
+
 import Footer from '../containers/Footer';
 import HeaderHomeScreen from '../components/HomeScreen/HeaderHomeScreen';
 import HeaderHomeScreenSecondPart from '../components/HomeScreen/HeaderHomeScreenSecondPart';
